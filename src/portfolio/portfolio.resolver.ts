@@ -8,7 +8,7 @@ export class PortfolioResolver {
   constructor(private portfolioService: PortfolioService) {}
 
   @Query(() => String)
-  hello(): string {
-    return this.portfolioService.getHello();
+  async hello(): Promise<string> {
+    return (await this.portfolioService.getUserInfo())[0].name;
   }
 }

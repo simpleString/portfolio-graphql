@@ -10,9 +10,10 @@ datasource db {
 }
 
 model User {
-  id          String @id @default(uuid())
+  id          String   @id @default(uuid())
   name        String
   description String
+  links       String[]
 
   skills      Skill[]
   experiences Experience[]
@@ -34,9 +35,12 @@ model Skill {
 }
 
 model Experience {
-  id       String @id @default(uuid())
-  company  String
-  position String
+  id           String   @id @default(uuid())
+  company      String
+  position     String
+  startTime    DateTime
+  endTime      DateTime
+  achievements String
 
   user   User?   @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId String?
@@ -48,6 +52,7 @@ model Experience {
 model Project {
   id   String @id @default(uuid())
   name String
+  link String
 
   user   User?   @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId String?

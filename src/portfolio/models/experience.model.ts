@@ -10,4 +10,13 @@ export class Experience {
 
   @Field()
   position: string;
+
+  @Field()
+  startTime: Date;
+
+  @Field()
+  endTime: Date;
+
+  @Field()
+  achievements: string;
 }

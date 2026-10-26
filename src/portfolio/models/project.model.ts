@@ -7,4 +7,7 @@ export class Project {
 
   @Field()
   name: string;
+
+  @Field()
+  link: string;
 }

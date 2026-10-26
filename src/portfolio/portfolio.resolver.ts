@@ -18,9 +18,9 @@ export class PortfolioResolver {
     return this.portfolioService.getUserById(id);
   }
 
-  @Query(() => [User], { nullable: true, name: 'profile' })
+  @Query(() => User, { nullable: true, name: 'profile' })
   async getUser() {
-    return this.portfolioService.getUsers();
+    return this.portfolioService.getFirstUser();
   }
 
   @ResolveField('skills', () => [Skill])

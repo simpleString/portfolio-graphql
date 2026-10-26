@@ -5,14 +5,8 @@ import { PrismaService } from 'src/prisma/prisma.service.js';
 export class PortfolioService {
   constructor(private readonly prisma: PrismaService) {}
 
-  async getUsers() {
-    return this.prisma.user.findMany({
-      include: {
-        experiences: true,
-        projects: true,
-        skills: true,
-      },
-    });
+  async getFirstUser() {
+    return this.prisma.user.findFirst();
   }
 
   async getUserById(id: string) {

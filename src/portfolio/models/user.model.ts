@@ -11,6 +11,9 @@ export class User {
   @Field()
   name: string;
 
+  @Field(() => [String])
+  links: string[];
+
   @Field()
   description: string;
 
